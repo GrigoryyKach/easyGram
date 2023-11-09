@@ -1,5 +1,5 @@
 import { useUserContext } from "@/context/AuthContext";
-import { formatDateString } from "@/lib/utils";
+import { multiFormatDateString } from "@/lib/utils";
 import { Models } from "appwrite";
 import { Link } from "react-router-dom";
 import PostStats from "./PostStats";
@@ -34,7 +34,7 @@ const PostCard = ({ post }: PostCardProps) => {
             </p>
             <div className="flex-center gap-2 text-light-3">
               <p className="subtle-semibold lg:small-regular">
-                {formatDateString(post.$createdAt)}
+                {multiFormatDateString(post.$createdAt)}
               </p>
               -
               <p className="subtle-semibold lg:small-regular">
@@ -57,7 +57,7 @@ const PostCard = ({ post }: PostCardProps) => {
           <p className="">{post.caption}</p>
           <ul className="flex gap-1 mt-2">
             {post.tags.map((tag: string) => (
-              <li key={tag} className="text-light-3">
+              <li key={tag} className="text-primary-500">
                 #{tag}
               </li>
             ))}
